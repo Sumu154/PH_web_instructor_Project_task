@@ -1,9 +1,9 @@
 import React from 'react';
-import AddEventForm from '../components';
+import AddEventForm from '../components/EventComponents/AddEventForm';
 import { Helmet } from 'react-helmet';
 
 
-const AddMarathons = () => {
+const AddEventsPage = () => {
   return (
     <div>
       <Helmet>
@@ -14,4 +14,4 @@ const AddMarathons = () => {
   );
 };
 
-export default AddMarathons;
+export default AddEventsPage;

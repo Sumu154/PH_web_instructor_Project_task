@@ -15,7 +15,7 @@ const getBaseURL = () => {
 
 // Create an Axios instance
 const axiosInstance = axios.create({
-  baseURL: 'https://education-management-server-side.vercel.app/api',
+  baseURL: 'http://localhost:3000/api',
   headers: {
     "Content-Type": "application/json",
   },

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const connectDB = require('../config/db');
 
-const marathonSchema = new mongoose.Schema({
+const eventSchema = new mongoose.Schema({
   eventTitle: {
     type: String,
     required: true,
@@ -32,4 +32,4 @@ const marathonSchema = new mongoose.Schema({
   },
 })
 
-module.exports = mongoose.model('Marathon', marathonSchema);
+module.exports = mongoose.model('Event', eventSchema);

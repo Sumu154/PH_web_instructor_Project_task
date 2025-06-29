@@ -17,6 +17,7 @@ import RegisterPage from "../pages/RegisterPage";
 import Error from '../components/shared/Error'
 import PrivateRoute from "./PrivateRoute";
 import EventsPage from "../pages/EventsPage";
+import AddEventsPage from "../pages/AddEventsPage";
 
 
 
@@ -46,10 +47,10 @@ const router = createBrowserRouter([
       //   path: '/registerMarathon',
       //   element: <PrivateRoute> <RegisterToMarathonForm></RegisterToMarathonForm> </PrivateRoute>,
       // },
-      // {
-      //   path: '/addMarathon',
-      //   element: <PrivateRoute> <AddMarathons></AddMarathons> </PrivateRoute> ,
-      // },
+      {
+        path: '/addEvent',
+        element: <PrivateRoute> <AddEventsPage></AddEventsPage>  </PrivateRoute> ,
+      },
       // {
       //   path: '/myMarathons',
       //   element: <PrivateRoute> <MyMarathonPage></MyMarathonPage> </PrivateRoute>,

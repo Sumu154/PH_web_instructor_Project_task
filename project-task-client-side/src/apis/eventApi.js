@@ -2,8 +2,9 @@ import axiosInstance from "../config/axiosInstance";
 
 
 // create user in database
-export const createEvent = async (user) => {
-  const res = await axiosInstance.post("/events", user);
+export const createEvent = async (event) => {
+  console.log(event)
+  const res = await axiosInstance.post("/events", event);
   return res.data;
 }
 

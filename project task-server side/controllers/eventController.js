@@ -3,7 +3,7 @@ const eventModel = require('../models/eventModel');
 
 const createEvent = async (req, res) => {
   try{
-    // console.log('post api hitting');
+    console.log('post api hitting');
     const event = req.body;
 
     const createdEvent = await eventModel.create(event);
