@@ -1,5 +1,5 @@
 import React from 'react';
-import AddMarathonForm from '../components/MarathonComponents/AddMarathonForm';
+import AddEventForm from '../components';
 import { Helmet } from 'react-helmet';
 
 
@@ -9,7 +9,7 @@ const AddMarathons = () => {
       <Helmet>
         <title> Add marathons </title>
       </Helmet>
-      <AddMarathonForm></AddMarathonForm>
+      <AddEventForm></AddEventForm>
     </div>
   );
 };
