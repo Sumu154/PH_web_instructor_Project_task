@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+@theme {
+  --breakpoint-sm: 500px;
+
+  --font-JotiOne: 'Joti One', 'serif';
+  --font-Montserrat: 'Montserrat', 'serif';
+  --font-OpenSans: 'Open Sans', 'serif';
+
+  --color-white: #FFFFFF;
+  --color-ash: #D9D9D9;
+  --color-darkgold: #BB8506;
+  --color-lightgold: #CD9003;
+  --color-darkyellow: #D99904;
+  --color-lightyellow: #EEFF25;
+  --color-darkblue: #111827;
+  --color-lightblue: #1F2937;
+  --color-darkblue: #111827;
+  --color-dark: #151515;
+
+  --color-background: #FFFACD;
+  --color-crimsonRed: #D61C4E;
+  --color-orchid: #AD49E1;
+  --color-green: #205d10 ;
+  --color-dollargreen: #1EA30C;
+  --color-redd: #E10E0E;
+  --color-orange: #F08B1D;
+  --color-amber: #F59E0B;
+  --color-jolpai: #9FA81A;
+  --color-brown: #D3A256;
+  --color-sky: #6AAEFF;
+  --color-rosepink: #FE4880;
+
+}
