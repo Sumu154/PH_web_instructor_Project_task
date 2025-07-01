@@ -117,19 +117,13 @@ const AddEventForm = () => {
           </fieldset>
         </div>
 
-        {/* Location + Image */}
+        {/* Location */}
         <div className="flex justify-between flex-wrap gap-2 mb-3">
-          <fieldset className="form-control w-full md:w-[49%]">
+          <fieldset className="form-control w-full">
             <label className="label mb-1">
               <span className="label-text">Location</span>
             </label>
             <input name="eventLocation" type="text" placeholder="Enter location" className="input input-bordered w-full" required />
-          </fieldset>
-          <fieldset className="form-control w-full md:w-[49%]">
-            <label className="label mb-1">
-              <span className="label-text">Event Image URL</span>
-            </label>
-            <input name="image" type="url" placeholder="Image URL" className="input input-bordered w-full" required />
           </fieldset>
         </div>
 

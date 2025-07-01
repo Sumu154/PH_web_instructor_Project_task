@@ -7,7 +7,7 @@ const AddEventsPage = () => {
   return (
     <div>
       <Helmet>
-        <title> Add marathons </title>
+        <title> Add events </title>
       </Helmet>
       <AddEventForm></AddEventForm>
     </div>

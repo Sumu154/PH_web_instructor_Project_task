@@ -19,7 +19,7 @@ const createEvent = async (req, res) => {
 const getEvents = async (req, res) => {
   // console.log('get all events');
   try{
-    const events = await eventModel.find();
+    const events = await eventModel.find().sort({ eventDateTime: 1 });
     res.status(200).json(events);
   }
   catch(e){
@@ -117,15 +117,13 @@ const updateEvent = async (req, res) => {
 }
 
 // update event -> only regCount change korbo
-const updateRegCount = async (req, res) => {
+const updateAttendeeCount = async (req, res) => {
   try{
     const id = req.params.id;
-    const { action } = req.body;
-    const change = action==='increment' ? 1 : -1;
 
     const updatedEvent = await eventModel.findByIdAndUpdate(
       id,
-      { $inc: {regCount: change} },
+      { $inc: { attendeeCount: 1 } },
       { new: true }
     );
     res.status(200).json(updatedEvent);
@@ -150,4 +148,4 @@ const deleteEvent = async (req, res) => {
 }
 
 
-module.exports = { getEvents, getEventsWithLimit, getEventsUpcoming, getEventById, getEventsBySorted, getEventByEmail, createEvent, updateEvent, deleteEvent, updateRegCount };
+module.exports = { getEvents, getEventsWithLimit, getEventsUpcoming, getEventById, getEventsBySorted, getEventByEmail, createEvent, updateEvent, deleteEvent, updateAttendeeCount };

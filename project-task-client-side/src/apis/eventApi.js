@@ -14,12 +14,6 @@ export const getEvents = async () => {
   return res.data;
 }
 
-// get all the users
-export const getEventsWithLimit = async () => {
-  const res = await axiosInstance.get('/events/limited');
-  return res.data;
-}
-
 // get event by id
 export const getEventById = async (event_id) => {
   const res = await axiosInstance.get(`/events/${event_id}`);
@@ -37,6 +31,13 @@ export const updateEvent = async (event_id) => {
   const res = await axiosInstance.put(`/events/${event_id}`);
   return res.data;
 }
+
+
+export const updateAttendeeCount = async (event_id) => {
+  const res = await axiosInstance.patch(`/events/${event_id}`);
+  return res;
+}
+
 
 export const deleteEvent = async (event_id) => {
   const res = await axiosInstance.delete(`/events/${event_id}`);

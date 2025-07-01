@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom';
 import { FaCalendarAlt, FaUser } from 'react-icons/fa';
 import { FaLocationDot } from "react-icons/fa6";
+import { updateAttendeeCount } from '../../apis/eventApi';
+import Swal from 'sweetalert2';
+
+import '../../assets/stylesheets/modal.css'
+import { useState } from 'react';
 
 
 const EventCard = ({ event }) => {
@@ -13,6 +18,9 @@ const EventCard = ({ event }) => {
     eventDescription,
     attendeeCount,
   } = event;
+
+  const [ attendCount, setAttendCount  ] = useState(attendeeCount) 
+
 
   const formatDateTime = (dateStr) => {
     const date = new Date(dateStr);
@@ -37,6 +45,35 @@ const EventCard = ({ event }) => {
     return `${days}d ${hours}h ${minutes}m left`;
   };
 
+
+  const handleJoinEvent = async () => {
+    try {
+      const res = await updateAttendeeCount(id); // Make sure this returns a promise
+      setAttendCount(attendCount+1);
+      
+      Swal.fire({
+        title: "Event joined successfully!",
+        icon: "success",
+        customClass: {
+          popup: 'small-modal'
+        }
+      }); 
+    } 
+    catch (error) {
+      Swal.fire({
+        title: "Error joining event",
+        text: error.message,
+        icon: "error",
+        customClass: {
+          popup: 'small-modal'
+        }
+      });
+    }
+
+
+  };
+
+
   return (
     <div className="bg-white shadow-md border-l-4 border-crimsonRed rounded-xl p-4 w-full max-w-md mx-auto text-gray-700 dark:bg-cardbackground dark:text-white">
       {/* Top Row */}
@@ -58,24 +95,25 @@ const EventCard = ({ event }) => {
       {/* Middle Info */}
       <div className="mb-2">
         <p className="flex items-center gap-1  font-medium mb-1">
-          <FaLocationDot className="text-gray-700" /> {eventLocation}
+          <FaLocationDot className="text-gray-700  text-sm" /> {eventLocation}
         </p>
-        <p className="flex items-center gap-1  text-gray-700 dark:text-gray-300">
-          <FaCalendarAlt className="text-gray-700" /> {formatDateTime(eventDateTime)}
+        <p className="flex items-center gap-1  text-gray-700 mb-1">
+          <FaCalendarAlt className="text-gray-700  text-sm" /> {formatDateTime(eventDateTime)}
+        </p>
+        <p className="flex items-center gap-1 text-gray-700 ">
+          <FaUser className="text-gray-700 text-sm " /> {attendCount} attending
         </p>
         <p className="text-sm mt-2">{eventDescription}</p>
       </div>
 
       {/* Bottom Area */}
       <div className="mt-3 flex justify-between items-center">
-        <div className="text-xs text-gray-600 dark:text-gray-400">
+        <div className="text-xs text-gray-600 ">
           <span className="font-medium text-red-500">{getCountdown(eventDateTime)}</span>
         </div>
-        <Link to={`/events/${id}`}>
-          <button className="px-4 py-1 border border-crimsonRed text-crimsonRed rounded-md hover:bg-crimsonRed hover:text-white transition-all  font-medium">
-            Join event
-          </button>
-        </Link>
+        <button onClick={handleJoinEvent} className="px-4 py-1 border border-crimsonRed text-crimsonRed rounded-md hover:bg-crimsonRed hover:text-white transition-all  font-medium">
+          Join event
+        </button>
       </div>
     </div>
   );
